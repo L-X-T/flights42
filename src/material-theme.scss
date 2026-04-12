@@ -7,16 +7,27 @@
 
 html {
   height: 100%;
+
+  // Use violet as closest built-in M3 palette to brand blue (92,68,228)
   @include mat.theme(
     (
       color: (
-        primary: mat.$azure-palette,
-        tertiary: mat.$blue-palette,
+        primary: mat.$violet-palette,
+        secondary: mat.$magenta-palette,
       ),
       typography: 'Inter Tight',
       density: 0,
     )
   );
+
+  // Override system vars with exact brand colors (light mode)
+  --mat-sys-primary: rgb(92, 68, 228);
+  --mat-sys-on-primary: #ffffff;
+  --mat-sys-primary-container: rgb(220, 215, 255);
+  --mat-sys-secondary: rgb(246, 55, 227);
+  --mat-sys-on-secondary: #ffffff;
+  --mat-sys-error: rgb(241, 22, 83);
+  --mat-sys-on-error: #ffffff;
 }
 
 body {

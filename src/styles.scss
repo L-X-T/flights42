@@ -7,7 +7,10 @@
   --color-black: #000;
   --color-border: #ddd;
   --color-box-shadow: rgba(0, 0, 0, 0.1);
-  --color-primary: #3f51b5;
+  --color-error: rgb(241, 22, 83);
+  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-primary: rgb(92, 68, 228);
+  --color-secondary: rgb(246, 55, 227);
   --color-white: #fff;
   --font-family: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-size: 1rem;
@@ -181,7 +184,7 @@ td {
 .btn,
 button,
 input[type='button'] {
-  background-color: #007bff;
+  background-color: var(--color-secondary);
   border: 1px solid transparent;
   border-radius: var(--border-radius);
   color: var(--color-white);
@@ -194,22 +197,26 @@ input[type='button'] {
   text-align: center;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: color-mix(in srgb, var(--color-secondary) 85%, black);
   }
 }
 
 .btn-danger {
-  background-color: crimson;
+  background-color: var(--color-error);
 
   &:hover {
-    background-color: #b01030;
+    background-color: color-mix(in srgb, var(--color-error) 85%, black);
   }
 }
 
 .btn-default,
 button,
 input[type='button'] {
-  background-color: #6c757d;
+  background-color: var(--color-primary);
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+  }
 }
 
 .buttons-side {
@@ -613,7 +620,7 @@ form > div {
 }
 
 .validation-errors {
-  color: darkred;
+  color: var(--color-error);
   margin-bottom: 20px;
   margin-top: 10px;
 }
