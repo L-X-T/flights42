@@ -1,3 +1,20 @@
+:root {
+  --border: 1px solid var(--color-border);
+  --border-radius: 0.25rem;
+  --color-black: #000;
+  --color-border: #ddd;
+  --color-box-shadow: rgba(0, 0, 0, 0.1);
+  --color-primary: #3f51b5;
+  --color-white: #fff;
+  --font-size: 1rem;
+  --font-size-lg: 1.25rem;
+  --navbar-height: 3.75rem;
+  --spacing-x1: 0.25rem;
+  --spacing-x2: 0.5rem;
+  --spacing-x4: 1rem;
+  --transition: 0.25s ease-in-out;
+}
+
 html {
   height: 100%;
 }
@@ -46,7 +63,7 @@ input {
 label {
   display: block;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-x2);
 }
 
 markdown p {
@@ -62,10 +79,10 @@ select {
   background-position: right 0.7rem center;
   background-repeat: no-repeat;
   background-size: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  padding: 0.5rem;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size);
+  padding: var(--spacing-x2);
   padding-right: 2.5rem;
 }
 
@@ -87,11 +104,11 @@ table,
   }
 
   > tbody {
-    border-top: 2px solid #ddd;
+    border-top: var(--border);
   }
 
   > thead > tr > th {
-    border-bottom: 2px solid #ddd;
+    border-bottom: var(--border);
     vertical-align: bottom;
   }
 
@@ -106,23 +123,23 @@ table,
   }
 
   .table {
-    background-color: #fff;
+    background-color: var(--color-white);
   }
 }
 
 td {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--color-border);
 }
 
 // ── Classes ──
 
 .active {
   background-color: #e8eaf6;
-  color: #3f51b5;
+  color: var(--color-primary);
 }
 
 .active-tab {
-  margin-bottom: 4px solid #3f51b5;
+  margin-bottom: 4px solid var(--color-primary);
 }
 
 .ai-wait-indicator {
@@ -162,14 +179,14 @@ button,
 input[type='button'] {
   background-color: #007bff;
   border: 1px solid transparent;
-  border-radius: 4px;
-  color: #fff;
+  border-radius: var(--border-radius);
+  color: var(--color-white);
   cursor: pointer;
   display: inline-block;
-  font-size: 1rem;
+  font-size: var(--font-size);
   font-weight: bold;
   margin-right: 5px;
-  padding: 0.5rem 1rem;
+  padding: var(--spacing-x2) var(--spacing-x4);
   text-align: center;
 
   &:hover {
@@ -197,9 +214,9 @@ input[type='button'] {
 }
 
 .card {
-  background-color: white;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px var(--color-box-shadow);
   margin-bottom: 0;
   overflow: hidden;
 
@@ -209,7 +226,7 @@ input[type='button'] {
 }
 
 .card-body {
-  padding: 1rem;
+  padding: var(--spacing-x4);
   padding-bottom: 0;
 
   .cdk-dialog-container & {
@@ -218,9 +235,9 @@ input[type='button'] {
 }
 
 .card-header {
-  font-size: 1.25rem;
+  font-size: var(--font-size-lg);
   font-weight: bold;
-  padding: 1rem;
+  padding: var(--spacing-x4);
   padding-bottom: 0;
 
   h2.title {
@@ -270,26 +287,28 @@ input[type='button'] {
   width: auto;
 }
 
+/*
 .danger-zone {
   color: darkred;
 }
+*/
 
 .form-control,
 input[type='text'],
 input[type='number'],
 input:not([type]) {
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   box-sizing: border-box;
-  font-size: 1rem;
-  padding: 0.5rem;
+  font-size: var(--font-size);
+  padding: var(--spacing-x2);
   width: 100%;
 }
 
 .form-group,
 fieldset > div,
 form > div {
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-x4);
 }
 
 .hamburger-menu {
@@ -304,14 +323,14 @@ form > div {
   width: 30px;
 
   span {
-    background-color: white;
+    background-color: var(--color-white);
     border-radius: 2px;
     display: block;
     height: 4px;
     margin-bottom: 6px;
     transition:
-      opacity 0.3s ease,
-      transform 0.3s ease;
+      opacity var(--transition),
+      transform var(--transition);
     width: 100%;
   }
 
@@ -328,7 +347,7 @@ form > div {
 
 .loading-backdrop {
   align-items: center;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--color-overlay);
   display: flex;
   inset: 0;
   justify-content: center;
@@ -339,10 +358,10 @@ form > div {
 .main-panel {
   flex: 1;
   margin-left: 250px;
-  margin-top: 60px;
+  margin-top: var(--navbar-height);
   overflow-y: auto;
   padding: 2rem;
-  transition: margin-left 0.3s ease;
+  transition: margin-left var(--transition);
 
   @media (max-width: 768px) {
     margin-left: 0;
@@ -373,13 +392,13 @@ form > div {
   overflow: hidden;
 
   .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--color-overlay);
     display: block;
     height: 100%;
     left: 0;
     position: fixed;
     top: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition);
     width: 100%;
     z-index: 9;
   }
@@ -391,13 +410,13 @@ form > div {
 
 .nav-secondary {
   display: flex;
-  font-size: 1rem;
+  font-size: var(--font-size);
   list-style: none;
   margin: 0 0 10px;
   padding: 0;
 
   a {
-    color: #3f51b5;
+    color: var(--color-primary);
     text-decoration: none;
   }
 
@@ -408,11 +427,11 @@ form > div {
 
 .navbar {
   align-items: center;
-  background-color: #3f51b5;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  color: white;
+  background-color: var(--color-primary);
+  border-bottom: 1px solid var(--color-box-shadow);
+  color: var(--color-white);
   display: flex;
-  height: 60px;
+  height: var(--navbar-height);
   justify-content: space-between;
   left: 0;
   padding: 0 1.5rem;
@@ -422,14 +441,14 @@ form > div {
   z-index: 10;
 
   .nav-item {
-    margin-left: 1rem;
+    margin-left: var(--spacing-x4);
   }
 
-  .nav-link {
-    color: white;
-    font-size: 1rem;
+  /*.nav-link {
+    color: var(--color-white);
+    font-size: var(--font-size);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color var(--transition);
 
     &:hover {
       color: #ffca28;
@@ -437,7 +456,7 @@ form > div {
   }
 
   .navbar-brand {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     font-weight: bold;
   }
 
@@ -446,7 +465,7 @@ form > div {
     list-style: none;
     margin: 0;
     padding: 0;
-  }
+  }*/
 }
 
 .row {
@@ -464,24 +483,24 @@ form > div {
 }
 
 .sidebar {
-  background-color: #ffffff;
+  background-color: var(--color-white);
   bottom: 0;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0 5px var(--color-box-shadow);
   display: flex;
   flex-direction: column;
   left: 0;
   overflow-y: auto;
-  padding: 1rem 0;
+  padding: var(--spacing-x4) 0;
   position: fixed;
-  top: 60px;
-  transition: transform 0.3s ease;
+  top: var(--navbar-height);
+  transition: transform var(--transition);
   width: 250px;
 
   .logo {
-    color: #3f51b5;
-    font-size: 1.25rem;
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-x4);
     text-align: center;
   }
 
@@ -491,24 +510,24 @@ form > div {
     padding: 0;
 
     a {
-      border-radius: 4px;
+      border-radius: var(--border-radius);
       color: #333333;
       display: block;
-      font-size: 1rem;
+      font-size: var(--font-size);
       padding: 0.75rem 1.5rem;
       text-decoration: none;
       transition:
-        background-color 0.3s,
-        color 0.3s;
+        background-color var(--transition),
+        color var(--transition);
 
       &:hover {
         background-color: #e8eaf6;
-        color: #3f51b5;
+        color: var(--color-primary);
       }
     }
 
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: var(--spacing-x2);
     }
   }
 
@@ -528,15 +547,15 @@ form > div {
   }
 }
 
-.small-form {
+/*.small-form {
   max-width: 400px;
-}
+}*/
 
 .spinner {
   animation: spin 0.8s linear infinite;
   border: 4px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  border-top-color: #fff;
+  border-top-color: var(--color-white);
   height: 48px;
   width: 48px;
 }
@@ -548,10 +567,10 @@ form > div {
 }
 
 .tooltip {
-  background: #fff;
-  border: 1px solid #000;
-  border-radius: 4px;
-  color: #000;
+  background: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-radius: var(--border-radius);
+  color: var(--color-black);
   font-size: 12px;
   padding: 6px 8px;
   position: fixed;
@@ -559,7 +578,7 @@ form > div {
   z-index: 1000;
 
   &::after {
-    border-color: #fff transparent transparent transparent;
+    border-color: var(--color-white) transparent transparent transparent;
     border-style: solid;
     border-width: 6px 6px 0 6px;
     bottom: -6px;
@@ -570,7 +589,7 @@ form > div {
   }
 
   &::before {
-    border-color: #000 transparent transparent transparent;
+    border-color: var(--color-black) transparent transparent transparent;
     border-style: solid;
     border-width: 7px 7px 0 7px;
     bottom: -7px;
