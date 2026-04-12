@@ -17,7 +17,7 @@ import { ChatRegistry } from '../chat-registry';
   selector: 'app-assistant-chat',
   imports: [FormsModule, ChatMessages],
   templateUrl: './assistant-chat.html',
-  styleUrls: ['./assistant-chat.css'],
+  styleUrls: ['./assistant-chat.scss'],
 })
 export class AssistantChat {
   private chatRegistry = inject(ChatRegistry);

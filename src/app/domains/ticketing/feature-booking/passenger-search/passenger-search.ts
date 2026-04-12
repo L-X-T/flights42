@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -15,7 +14,7 @@ import { PassengerStore } from './passenger-store';
 
 @Component({
   selector: 'app-passenger-search',
-  imports: [FormField, PassengerCard, JsonPipe, RouterLink],
+  imports: [FormField, PassengerCard, RouterLink],
   templateUrl: './passenger-search.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

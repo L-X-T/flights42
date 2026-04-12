@@ -15,7 +15,7 @@ interface DateTimeParts {
   selector: 'app-date-control',
   imports: [],
   templateUrl: './date-control.html',
-  styleUrl: './date-control.css',
+  styleUrl: './date-control.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DateControl implements FormValueControl<string | null> {

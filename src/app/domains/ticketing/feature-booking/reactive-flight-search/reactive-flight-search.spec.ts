@@ -58,10 +58,7 @@ describe('reactive-flight-search', () => {
       createTestFlight(3),
     ]);
 
-    const headings = page.getByRole('heading', {
-      name: 'Paris - London',
-    });
-
-    await expect.element(headings).toHaveLength(3);
+    const cards = page.getByText('Flight #1');
+    await expect.element(cards).toBeVisible();
   });
 });

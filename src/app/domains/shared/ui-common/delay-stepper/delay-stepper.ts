@@ -5,7 +5,7 @@ import { FormValueControl, ValidationError } from '@angular/forms/signals';
   selector: 'app-delay-stepper',
   imports: [],
   templateUrl: './delay-stepper.html',
-  styleUrl: './delay-stepper.css',
+  styleUrl: './delay-stepper.scss',
 })
 export class DelayStepper implements FormValueControl<number> {
   readonly value = model(0);

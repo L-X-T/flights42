@@ -1,22 +1,38 @@
 @let itemValue = item();
-
 <div [class.selected]="selected()" class="card">
-  <div class="card-header">
-    <h2 class="title">{{ itemValue.firstName }} {{ itemValue.name }}</h2>
-  </div>
-
   <div class="card-body">
-    <p>Passenger-No.: #{{ itemValue.id }}</p>
-    <p>Bonus Miles: {{ itemValue.bonusMiles }}</p>
-    <p>Status: {{ itemValue.passengerStatus }}</p>
-    <p>
+    <div class="card-header">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <span class="avatar"
+          >{{ itemValue.firstName.charAt(0)
+          }}{{ itemValue.name.charAt(0) }}</span
+        >
+        <div>
+          <strong style="font-size: var(--font-size)"
+            >{{ itemValue.firstName }} {{ itemValue.name }}</strong
+          >
+          <p class="muted">Passenger #{{ itemValue.id }}</p>
+        </div>
+      </div>
+      <span class="badge badge-purple">{{ itemValue.passengerStatus }}</span>
+    </div>
+    <div class="cols">
+      <div>
+        <p class="col-label">Bonus Miles</p>
+        <p class="col-value">{{ itemValue.bonusMiles }}</p>
+      </div>
+      <div>
+        <p class="col-label">Status</p>
+        <p class="col-value">{{ itemValue.passengerStatus }}</p>
+      </div>
+    </div>
+    <div class="btn-row">
       @if (!selected()) {
         <button (click)="select()">Select</button>
       } @else {
         <button (click)="deselect()">Remove</button>
       }
-
       <ng-content />
-    </p>
+    </div>
   </div>
 </div>

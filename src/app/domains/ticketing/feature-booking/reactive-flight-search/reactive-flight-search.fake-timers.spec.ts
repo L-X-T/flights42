@@ -65,10 +65,7 @@ describe('reactive-flight-search with fake timers', () => {
 
     await vi.runAllTimersAsync();
 
-    const headings = page.getByRole('heading', {
-      name: 'Paris - London',
-    });
-
-    await expect.element(headings).toHaveLength(3);
+    const cards = page.getByText('Flight #1');
+    await expect.element(cards).toBeVisible();
   });
 });

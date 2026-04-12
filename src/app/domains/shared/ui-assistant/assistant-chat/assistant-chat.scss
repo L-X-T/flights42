@@ -14,8 +14,8 @@
 /* Toggle button */
 :host ::ng-deep .ai-toggle {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
+  right: 6px;
+  top: 6px;
   z-index: 1000;
   display: inline-flex;
   align-items: center;
@@ -89,7 +89,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding: 14px;
+  padding: 12px;
   border-bottom: 1px solid var(--border);
   background: linear-gradient(180deg, var(--surface-2), var(--surface));
 }

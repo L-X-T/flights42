@@ -31,7 +31,7 @@ import { CheckinDialogComponent } from './checkin-dialog';
     // NextFlightsModule,
   ],
   templateUrl: './checkin-page.html',
-  styleUrl: './checkin-page.css',
+  styleUrl: './checkin-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckinPage {

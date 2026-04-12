@@ -29,45 +29,47 @@ import { TabRegistry } from './tab-registry';
       flex-direction: column;
       box-sizing: border-box;
       width: 100%;
-      padding: 25px;
-      background-color: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 6px;
+      background: var(--color-white);
+      border-radius: 12px;
+      border: 0.5px solid rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      margin-bottom: 24px;
     }
 
     .tabs-header {
       display: flex;
-      gap: 8px;
-      border-bottom: 1px solid #e0e0e0;
+      border-bottom: 1px solid var(--color-border);
     }
 
     .tab-button {
-      padding: 10px 20px;
+      flex: 1;
+      padding: 12px 20px;
       border: none;
       border-radius: 0;
       background: transparent;
-      color: #666;
-      font-size: 14px;
+      color: var(--color-label);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight);
       cursor: pointer;
-      transition: color 0.2s ease;
+      text-align: center;
       border-bottom: 2px solid transparent;
       margin-bottom: -1px;
     }
 
     .tab-button:hover {
-      color: #333;
+      color: var(--color-primary);
     }
 
     .tab-button.active {
-      color: #1976d2;
-      border-bottom: 2px solid #1976d2;
+      color: var(--color-primary);
+      font-weight: var(--font-weight-bold);
+      border-bottom: 2px solid var(--color-primary);
       border-radius: 0;
     }
 
     .tabs-content {
-      padding: 20px;
-      background-color: #fff;
-      margin-top: 0;
+      padding: 24px;
+      background: var(--color-white);
     }
   `,
 })

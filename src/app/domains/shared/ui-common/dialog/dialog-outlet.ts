@@ -17,7 +17,7 @@ import { DialogEvent } from './dialog-event';
   selector: 'app-dialog-outlet',
   imports: [NgComponentOutlet],
   templateUrl: './dialog-outlet.html',
-  styleUrl: './dialog-outlet.css',
+  styleUrl: './dialog-outlet.scss',
 })
 export class DialogOutlet {
   private readonly dialogService = inject(DialogService);

@@ -19,7 +19,7 @@ import { examplePrompts } from './example-prompts';
   selector: 'app-reporting-page',
   imports: [FormsModule, JsonPipe],
   templateUrl: './reporting-page.html',
-  styleUrl: './reporting-page.css',
+  styleUrl: './reporting-page.scss',
 })
 export class ReportingPage {
   readonly canvas = viewChild<ElementRef<HTMLCanvasElement>>('chart');

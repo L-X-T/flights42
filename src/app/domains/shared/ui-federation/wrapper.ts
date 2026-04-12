@@ -18,7 +18,7 @@ export const initWrapperConfig: WrapperConfig = {
   selector: 'app-wrapper',
   imports: [CommonModule],
   templateUrl: './wrapper.html',
-  styleUrls: ['./wrapper.css'],
+  styleUrls: ['./wrapper.scss'],
 })
 export class Wrapper {
   private elm = inject(ElementRef);

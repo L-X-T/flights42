@@ -20,7 +20,7 @@ interface SortState<T> {
   selector: 'app-data-table',
   imports: [CommonModule, NgTemplateOutlet],
   templateUrl: './advanced-data-table.html',
-  styleUrl: './advanced-data-table.css',
+  styleUrl: './advanced-data-table.scss',
 })
 export class DataTable<T extends object> {
   readonly data = input<T[]>([]);

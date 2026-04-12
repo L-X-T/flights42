@@ -1,25 +1,16 @@
-<div class="card">
-  <div class="card-body">
-    <ul class="nav nav-secondary">
-      <li>
-        <a [routerLink]="['./flight-search']">Flight</a>
-      </li>
-
-      &nbsp; | &nbsp;
-
-      <li>
-        <a [routerLink]="['./passenger-search']">Passenger</a>
-      </li>
-
-      &nbsp; | &nbsp;
-
-      <li>
-        <a [routerLink]="['./summary']">Summary</a>
-      </li>
-    </ul>
-  </div>
+<div class="card" style="margin-bottom: 24px">
+  <ul class="nav-secondary">
+    <li>
+      <a routerLinkActive="active" [routerLink]="['./flight-search']">Flight</a>
+    </li>
+    <li>
+      <a routerLinkActive="active" [routerLink]="['./passenger-search']"
+        >Passenger</a
+      >
+    </li>
+    <li>
+      <a routerLinkActive="active" [routerLink]="['./summary']">Summary</a>
+    </li>
+  </ul>
 </div>
-
-<div class="mt-40">
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>

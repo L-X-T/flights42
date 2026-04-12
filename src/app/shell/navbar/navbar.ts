@@ -4,7 +4,6 @@ import {
   DOCUMENT,
   inject,
 } from '@angular/core';
-
 @Component({
   selector: 'app-navbar',
   imports: [],

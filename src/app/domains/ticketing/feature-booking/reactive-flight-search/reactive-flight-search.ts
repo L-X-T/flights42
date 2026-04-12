@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -17,7 +16,7 @@ import { FlightStore } from '../flight-search/flight-store';
 
 @Component({
   selector: 'app-flight-search',
-  imports: [FormField, FlightCard, JsonPipe, RouterLink],
+  imports: [FormField, FlightCard, RouterLink],
   templateUrl: './reactive-flight-search.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

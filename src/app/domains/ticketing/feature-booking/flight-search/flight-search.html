@@ -1,19 +1,27 @@
-<h1>Flight Search</h1>
-
+<h1>Flight search</h1>
 <form>
-  <div>
-    <label for="from">From:</label>
-    <input [formField]="filterForm.from" id="from" />
+  <div style="display: flex; gap: 16px; margin-bottom: 12px">
+    <div style="flex: 1">
+      <label for="from">From</label>
+      <input [formField]="filterForm.from" id="from" />
+    </div>
+    <div style="display: flex; align-items: flex-end; padding-bottom: 0.75rem">
+      <svg width="24" height="12" viewBox="0 0 24 12">
+        <path
+          d="M0 6h22M18 1l5 5-5 5"
+          stroke="#bbb"
+          stroke-width="1.5"
+          fill="none" />
+      </svg>
+    </div>
+    <div style="flex: 1">
+      <label for="to">To</label>
+      <input [formField]="filterForm.to" id="to" />
+    </div>
   </div>
-  <div>
-    <label for="to">To:</label>
-    <input [formField]="filterForm.to" id="to" />
-  </div>
-  <div>
-    {{ flightRoute() }}
-  </div>
-  <div>
+  <div class="btn-row" style="margin-bottom: 28px">
     <button
+      class="btn-primary"
       type="button"
       (click)="search()"
       [disabled]="!filter().from || !filter().to">
@@ -22,27 +30,27 @@
     <button type="button" (click)="delay()">Delay</button>
   </div>
   @if (isLoading()) {
-    <div>Loading ...</div>
+    <div class="muted">Loading ...</div>
   }
 </form>
-
-<div class="row">
+@if (flights().length) {
+  <p class="muted" style="margin-bottom: 12px">
+    {{ flights().length }} results for {{ flightRoute() }}
+  </p>
+}
+<div class="card-stack">
   @for (flight of flights(); track flight.id) {
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-      <app-flight-card
-        [item]="flight"
-        [selected]="basket()[flight.id]"
-        (selectedChange)="updateBasket(flight.id, $event)">
-        <button
-          [routerLink]="['../flight-edit', flight.id, { showDetails: true }]">
-          Edit
-        </button>
-      </app-flight-card>
-    </div>
+    <app-flight-card
+      [item]="flight"
+      [selected]="basket()[flight.id]"
+      (selectedChange)="updateBasket(flight.id, $event)">
+      <button
+        [routerLink]="['../flight-edit', flight.id, { showDetails: true }]">
+        Edit
+      </button>
+    </app-flight-card>
   }
 </div>
-
-<p>&nbsp;</p>
 
 <div>
   <pre>{{ basket() | json }}</pre>

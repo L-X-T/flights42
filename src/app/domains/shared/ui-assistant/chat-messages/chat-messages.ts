@@ -20,7 +20,7 @@ import { ToolStatusComponent } from '../tool-status';
     ToolStatusComponent,
   ],
   templateUrl: './chat-messages.html',
-  styleUrls: ['./chat-messages.css'],
+  styleUrls: ['./chat-messages.scss'],
 })
 export class ChatMessages {
   readonly messages = input.required<UiChatMessage[]>();

@@ -1,77 +1,107 @@
 <h1>Check-in</h1>
-
 @if (checkinForm().invalid()) {
-  <div class="validation-errors">Please correct the validation errors!</div>
-}
-
-<form class="small-form" class="signal-form">
-  <div>
-    <label for="flightId">Ticket Id</label>
-    <input [formField]="checkinForm.ticketId" id="flightId" />
-    @if (checkinForm.ticketId().invalid()) {
-      <div>{{ checkinForm.ticketId().errorSummary() | json }}</div>
-    }
+  <div class="validation-errors">
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="rgb(241,22,83)"
+      stroke-width="2">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="12" y1="8" x2="12" y2="12" />
+      <line x1="12" y1="16" x2="12.01" y2="16" />
+    </svg>
+    Please correct the validation errors below
   </div>
-
-  <fieldset [formGroup]="passengerGroup" class="reactive-form">
-    <div>
-      <label for="firstName">First Name</label>
-      <input formControlName="firstName" id="firstName" />
-    </div>
-    <div>
-      <label for="lastName">Last Name</label>
-      <input formControlName="lastName" id="lastName" />
-    </div>
-    <div>
-      <label for="email">Email Address</label>
-      <input formControlName="email" id="email" />
-      @if (passengerGroup.controls.email.invalid) {
-        <div>{{ passengerGroup.controls.email.errors | json }}</div>
+}
+<div class="card">
+  <div class="card-body">
+    <div style="margin-bottom: 20px">
+      <label for="flightId">Ticket ID</label>
+      <input [formField]="checkinForm.ticketId" id="flightId" />
+      @if (checkinForm.ticketId().invalid()) {
+        <div class="error-msg">
+          {{ checkinForm.ticketId().errorSummary() | json }}
+        </div>
       }
     </div>
 
-    <fieldset class="signal-form">
-      <div>
-        <label for="phoneNumber">Phone</label>
-        <input formControlName="phoneNumber" id="phoneNumber" />
-        Full Number: {{ fullPhoneNumber() }}
-        <!-- {{ this.phoneNumber.sourceValue() }} -->
+    <fieldset
+      [formGroup]="passengerGroup"
+      style="border: none; padding: 0; margin: 0">
+      <div style="display: flex; gap: 16px; margin-bottom: 20px">
+        <div style="flex: 1">
+          <label for="firstName">First name</label>
+          <input formControlName="firstName" id="firstName" />
+        </div>
+        <div style="flex: 1">
+          <label for="lastName">Last name</label>
+          <input formControlName="lastName" id="lastName" />
+        </div>
+      </div>
+
+      <div style="margin-bottom: 20px">
+        <label for="email">Email address</label>
+        <input formControlName="email" id="email" />
+        @if (passengerGroup.controls.email.invalid) {
+          <div class="error-msg">
+            {{ passengerGroup.controls.email.errors | json }}
+          </div>
+        }
+      </div>
+
+      <div style="margin-bottom: 24px">
+        <label
+          for="phoneNumber"
+          [class.label-error]="passengerGroup.controls.phoneNumber.invalid"
+          >Phone</label
+        >
+        <input
+          formControlName="phoneNumber"
+          id="phoneNumber"
+          [class.input-error]="passengerGroup.controls.phoneNumber.invalid" />
+        <span class="muted" style="margin-left: 8px"
+          >Full Number: {{ fullPhoneNumber() }}</span
+        >
         @if (passengerGroup.controls.phoneNumber.invalid) {
-          <div>{{ passengerGroup.controls.phoneNumber.errors | json }}</div>
+          <div class="error-msg">
+            {{ passengerGroup.controls.phoneNumber.errors | json }}
+          </div>
         }
       </div>
     </fieldset>
-  </fieldset>
 
-  <div>
-    <div class="checkbox">
-      <label>
+    <div class="divider">
+      <label
+        style="
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: var(--font-size-xs);
+          color: #666;
+          cursor: pointer;
+          text-transform: none;
+        ">
         <input type="checkbox" [formField]="checkinForm.conditionsAccepted" />
         I accept the general conditions of carriage
       </label>
       @if (checkinForm.conditionsAccepted().invalid()) {
-        <div>{{ checkinForm.conditionsAccepted().errorSummary() | json }}</div>
+        <div class="error-msg">
+          {{ checkinForm.conditionsAccepted().errorSummary() | json }}
+        </div>
       }
     </div>
   </div>
+</div>
 
-  <div [routerLink]="[]" id="confirmation">
-    <button (click)="checkin()" type="button">Check-in</button>
-    <button (click)="navigateToNextFlights()" type="button">
-      Next Flights
-    </button>
-  </div>
-</form>
-
-<!-- <p class="mb-20">
-  <a
-    (click)="toggleNextFlights()"
-    (keypress.enter)="toggleNextFlights()"
-    tabindex="0">
-    Toggle Next Flights
-  </a>
-</p>
-
-@if (showNextFlights()) {
-  <app-next-flights />
-} -->
+<div
+  class="btn-row"
+  style="margin-top: 20px"
+  [routerLink]="[]"
+  id="confirmation">
+  <button class="btn-primary" (click)="checkin()" type="button">
+    Check-in
+  </button>
+  <button (click)="navigateToNextFlights()" type="button">Next flights</button>
+</div>
