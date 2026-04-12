@@ -1,0 +1,81 @@
+.navbar {
+  align-items: center;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  display: flex;
+  height: var(--navbar-height);
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.app-title {
+  align-items: center;
+  display: flex;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  gap: 10px;
+  color: var(--color-white);
+}
+
+.navbar-actions {
+  display: flex;
+  gap: var(--spacing-x2);
+  align-items: center;
+}
+
+.navbar-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: background var(--transition);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.28);
+  }
+}
+
+.hamburger-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  height: 25px;
+  justify-content: space-between;
+  padding: 0;
+  margin-right: 0.5rem;
+  width: 30px;
+
+  span {
+    background-color: var(--color-white);
+    border-radius: 2px;
+    display: block;
+    height: 4px;
+    margin-bottom: 6px;
+    transition:
+      opacity var(--transition),
+      transform var(--transition);
+    width: 100%;
+  }
+
+  &:hover {
+    background: none;
+  }
+
+  @media (max-width: 768px) {
+    display: inline;
+  }
+}

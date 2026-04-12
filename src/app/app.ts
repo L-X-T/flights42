@@ -21,6 +21,7 @@ import { Sidebar } from './shell/sidebar/sidebar';
   selector: 'app-root',
   imports: [RouterOutlet, Navbar, Sidebar, AssistantChat],
   templateUrl: './app.html',
+  styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
